@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>changestatus</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='projcss.css') }}">
+    </head>
+    <body>
+        <center>
+            <h1>Change Flight Status</h1>
+            <div>
+                <form action="/notify" method="POST">
+                
+                <label for="fid">Flight ID</label>
+                <input type="text" id="fid" name="fid" placeholder="Flight ID">
+
+                <label for="status">Change status:</label>
+                <select name="status" id="status">
+                <option value="ontime">On time</option>
+                <option value="delayed">Delayed</option>
+                <option value="early">Early</option>
+                <input type="submit" value="Change">
+                </select>
+               </form>
+               <h1>{{msg}}</h1>
+        </center>
+    </body>
+</html>

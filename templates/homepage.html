@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>check status</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='projcss.css') }}">
+    </head>
+    <body>
+        <center>
+            <h1>Check Flight Status</h1>
+            <p>To check the status of your flight enter the following details</p>
+            <div>
+                <form action="/status" method="POST">
+                <label for="d">Departure</label>
+                <select name="d" id="d">
+                    <option value="default" selected></option>
+                    {% for row in mdata %}
+                    <option value={{row}}>{{row}}</option>
+                    {% endfor %}
+                </select>
+                <label for="a">Arrival</label>
+                <select name="a" id="a">
+                    <option value="default" selected></option>
+                    {% for row in mdata2 %}
+                    <option value={{row}}>{{row}}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="fid">Flight ID</label>
+                <input type="text" id="fid" name="fid" placeholder="Flight ID">
+
+                <label for="b_num">Booking Number</label>
+                <input type="text" id="b_num" name="b_num" placeholder="Booking Number">
+                  <input type="submit" value="Check">
+                </form>
+        </center>
+    </body>
+</html>
